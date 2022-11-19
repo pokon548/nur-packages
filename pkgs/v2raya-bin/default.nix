@@ -11,6 +11,7 @@
 
 let
   pname = "v2raya-bin";
+  name = "v2raya-bin";
   version = "v1.5.9.1698.1";
   
   src = fetchurl {
@@ -25,7 +26,7 @@ in
 
 stdenv.mkDerivation {
   inherit version name src;
-  
+
   buildInputs = [ v2ray iptables bash ];
   nativeBuildInputs = [ makeWrapper ];
   dontUnpack = true;
