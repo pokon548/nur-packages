@@ -1,62 +1,53 @@
+# Modified from https://github.com/yilozt/nurpkg
+
 { lib
-, fetchFromGitHub
-, mkYarnPackage
-, fetchYarnDeps
-, buildGoModule
+, stdenv
+, bash
 , makeWrapper
-, v2ray
-, v2ray-geoip
-, v2ray-domain-list-community
-, symlinkJoin
+, fetchFromGitHub
+, fetchurl
 }:
+
+
 let
-  pname = "v2raya";
-  version = "unstable-2022-11-17";
-  src = fetchFromGitHub {
-    owner = "v2rayA";
-    repo = "v2rayA";
-    rev = "d1d4afe27370ac6de74b991a1350d767b14d8807";
-    sha256 = "sha256-da5fpbNQBRvXNUe0CRbW5CjLfxYRgLUX+nlsp1JnnmA=";
+  pname = "v2raya-bin";
+  version = "v1.5.9.1698.1";
+  name = "v2rayA-bin-${version}";
+  
+  src = fetchurl {
+    url = "https://github.com/v2rayA/v2rayA/releases/download/v1.5.9.1698.1/v2raya_linux_x64_1.5.9.1698.1";
+    sha256 = "sha256:114d6jfhi6b4lwlq1l5nj4041nc1w5c1s407js6cdhi13sa4blzz";
   };
-  web = mkYarnPackage {
-    inherit pname version;
-    src = "${src}/gui";
 
-    yarnLock = ./yarn.lock;
-    packageJSON = ./package.json;
-
-    # https://github.com/webpack/webpack/issues/14532
-    buildPhase = ''
-      export NODE_OPTIONS=--openssl-legacy-provider
-      ln -s $src/postcss.config.js postcss.config.js
-      OUTPUT_DIR=$out yarn build --skip-integrity-check
-    '';
-    distPhase = "true";
-    dontInstall = true;
-    dontFixup = true;
-  };
+  inherit ((builtins.getFlake
+    "github:NixOS/nixpkgs/8de8b98839d1f20089582cfe1a81207258fcc1f1").legacyPackages.${stdenv.system})
+    v2ray iptables; # fetch v2ray 4
 in
-buildGoModule {
-  inherit pname version;
-  src = "${src}/service";
-  vendorSha256 = "sha256-Ud4pwS0lz7zSTowg3gXNllfDyj8fu33H1L20szxPcOA=";
-  subPackages = [ "." ];
+
+stdenv.mkDerivation {
+  inherit version name src;
+
+  buildInputs = [ v2ray iptables bash ];
   nativeBuildInputs = [ makeWrapper ];
-  preBuild = ''
-    cp -a ${web} server/router/web
+  dontUnpack = true;
+
+  preferLocalBuild = true;
+
+  installPhase = ''
+    mkdir -p $out/bin
+    install -m 755 $src $out/bin/.v2rayA-wrapped
   '';
-  postInstall = ''
-    wrapProgram $out/bin/v2rayA \
-      --prefix PATH ":" "${lib.makeBinPath [ v2ray ]}" \
-      --prefix XDG_DATA_DIRS ":" ${symlinkJoin {
-        name = "assets";
-        paths = [ v2ray-geoip v2ray-domain-list-community ];
-      }}/share
+
+  postFixup = ''
+    # Wrap v2rayA binary with currect $PATH
+    makeWrapper $out/bin/.v2rayA-wrapped $out/bin/v2rayA \
+      --suffix PATH : ${lib.makeBinPath [ v2ray iptables bash ]}
   '';
+
   meta = with lib; {
     description = "A Linux web GUI client of Project V which supports V2Ray, Xray, SS, SSR, Trojan and Pingtunnel";
     homepage = "https://github.com/v2rayA/v2rayA";
     mainProgram = "v2rayA";
-    license = licenses.agpl3Only;
+    license = licenses.unfree;
   };
 }
