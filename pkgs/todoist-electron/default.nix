@@ -35,6 +35,5 @@ in appimageTools.wrapType2 {
     description = "The official Todoist electron app";
     platforms = [ "x86_64-linux" ];
     license = licenses.unfree;
-    maintainers = with maintainers; [ pokon548 ];
   };
 }
