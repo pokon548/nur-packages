@@ -19,8 +19,6 @@ let
     sha256 = "sha256:114d6jfhi6b4lwlq1l5nj4041nc1w5c1s407js6cdhi13sa4blzz";
   };
 
-  preferLocalBuild = true;
-
   inherit ((builtins.getFlake
     "github:NixOS/nixpkgs/8de8b98839d1f20089582cfe1a81207258fcc1f1").legacyPackages.${stdenv.system})
     v2ray iptables; # fetch v2ray 4
@@ -32,6 +30,8 @@ stdenv.mkDerivation {
   buildInputs = [ v2ray iptables bash ];
   nativeBuildInputs = [ makeWrapper ];
   dontUnpack = true;
+
+  preferLocalBuild = true;
 
   installPhase = ''
     mkdir -p $out/bin
