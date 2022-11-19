@@ -31,7 +31,7 @@ stdenv.mkDerivation {
   nativeBuildInputs = [ makeWrapper ];
   dontUnpack = true;
 
-  preferLocalBuild = true;
+  skipci = true;
 
   installPhase = ''
     mkdir -p $out/bin
