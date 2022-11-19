@@ -11,7 +11,7 @@
 }:
 let
   pname = "v2raya";
-  version = "unstable-2022-10-04";
+  version = "unstable-2022-11-17";
   src = fetchFromGitHub {
     owner = "v2rayA";
     repo = "v2rayA";
@@ -22,7 +22,7 @@ let
     inherit pname version;
     src = "${src}/gui";
 
-    yarnLock = "./yarn.lock";
+    yarnLock = ./yarn.lock;
     packageJSON = ./package.json;
 
     # https://github.com/webpack/webpack/issues/14532
