@@ -11,8 +11,8 @@
 
 let
   pname = "v2raya-bin";
-  name = "v2raya-bin";
   version = "v1.5.9.1698.1";
+  name = "v2rayA-bin-${version}";
   
   src = fetchurl {
     url = "https://github.com/v2rayA/v2rayA/releases/download/v1.5.9.1698.1/v2raya_linux_x64_1.5.9.1698.1";
