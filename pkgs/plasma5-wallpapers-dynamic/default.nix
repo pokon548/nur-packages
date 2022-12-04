@@ -4,6 +4,7 @@
 , cmake
 , extra-cmake-modules
 , plasma-framework
+, kdecoration
 , qtbase
 , qtdeclarative
 , qtlocation
@@ -27,6 +28,7 @@ mkDerivation rec {
 
   buildInputs = [
     plasma-framework
+    kdecoration
     qtbase
     qtdeclarative
     qtlocation
