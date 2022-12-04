@@ -3,15 +3,12 @@
 , fetchFromGitHub
 , cmake
 , extra-cmake-modules
-, qtx11extras
-, kcoreaddons
-, kguiaddons
-, kconfig
-, kdecoration
-, kconfigwidgets
-, kwindowsystem
-, kiconthemes
-, kwayland
+, plasma-framework
+, qtbase
+, qtdeclarative
+, qtlocation
+, libexif
+, libavif
 , unstableGitUpdater
 }:
 
@@ -29,15 +26,12 @@ mkDerivation rec {
   nativeBuildInputs = [ cmake extra-cmake-modules ];
 
   buildInputs = [
-    qtx11extras
-    kcoreaddons
-    kguiaddons
-    kdecoration
-    kconfig
-    kconfigwidgets
-    kwindowsystem
-    kiconthemes
-    kwayland
+    plasma-framework
+    qtbase
+    qtdeclarative
+    qtlocation
+    libexif
+    libavif
   ];
 
   passthru = {
