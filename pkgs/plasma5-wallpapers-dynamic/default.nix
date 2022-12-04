@@ -3,6 +3,7 @@
 , fetchFromGitHub
 , cmake
 , extra-cmake-modules
+, qtx11extras
 , plasma-framework
 , kdecoration
 , qtbase
@@ -27,6 +28,7 @@ mkDerivation rec {
   nativeBuildInputs = [ cmake extra-cmake-modules ];
 
   buildInputs = [
+    qtx11extras
     plasma-framework
     kdecoration
     qtbase
