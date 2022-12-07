@@ -1,4 +1,4 @@
-{ appimageTools, lib, fetchurl, electron, buildFHSUserEnvBubblewrap, makeWrapper, libsecret }:
+{ appimageTools, lib, fetchurl, electron, makeWrapper, libsecret }:
 
 let
   pname = "qq";
