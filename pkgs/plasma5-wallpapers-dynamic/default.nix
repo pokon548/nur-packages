@@ -3,6 +3,7 @@
 , fetchFromGitHub
 , cmake
 , extra-cmake-modules
+, libjpeg
 , qtx11extras
 , plasma-framework
 , kdecoration
@@ -29,13 +30,14 @@ mkDerivation rec {
 
   buildInputs = [
     qtx11extras
+    libjpeg
     plasma-framework
     kdecoration
     qtbase
     qtdeclarative
     qtlocation
-    libexif
     libavif
+    libexif
   ];
 
   passthru = {
