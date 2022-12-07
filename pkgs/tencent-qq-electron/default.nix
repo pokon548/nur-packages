@@ -3,7 +3,7 @@
 let
   pname = "qq";
   version = "2.0.1-429";
-  name = "Tencent-QQ-${version}";
+  name = "Tencent-QQ-${version}-iconfix";
 
   src = fetchurl {
     url = "https://dldir1.qq.com/qqfile/qq/QQNT/4691a571/QQ-v${version}_x64.AppImage";
@@ -19,7 +19,8 @@ in appimageTools.wrapType2 {
     mv $out/bin/${name} $out/bin/${pname}
     install -m 444 -D ${appimageContents}/${pname}.desktop -t $out/share/applications
     substituteInPlace $out/share/applications/${pname}.desktop \
-      --replace 'Exec=AppRun' 'Exec=${pname}'
+      --replace 'Exec=AppRun' 'Exec=${pname}' \
+      --replace 'Icon=/opt/QQ/resources/app/512x512.png' 'Icon=qq'
     cp -r ${appimageContents}/usr/share/icons $out/share
   '';
 
