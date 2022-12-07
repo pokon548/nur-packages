@@ -48,10 +48,11 @@ mkDerivation rec {
     homepage = "https://github.com/zzag/plasma5-wallpapers-dynamic";
     license = licenses.gpl2;
 
-    # I don't know why it is only buildable on NixOS 22.05, 
-    # but fails on recently released 22.11 / unstable.
+    # Upstreaming issue of libyuv cause this package not buildable for NixOS 22.11+
+    # https://github.com/NixOS/nixpkgs/commit/ddd1e56610607ceec26054fee2afb8421678b1c3
     #
-    # Feel free to make a PR if you have some ideas
+    # TODO: Wait for this commit to be merged into nixos-unstable / nixos-22.11
+    #       then I will remove the mark of broken anyway
     broken = true;
   };
 }
