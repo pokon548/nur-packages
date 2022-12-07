@@ -49,7 +49,7 @@ mkDerivation rec {
     license = licenses.gpl2;
 
     # Upstreaming issue of libyuv cause this package not buildable for NixOS 22.11+
-    # https://github.com/NixOS/nixpkgs/commit/ddd1e56610607ceec26054fee2afb8421678b1c3
+    # See this commit: https://github.com/NixOS/nixpkgs/commit/ddd1e56610607ceec26054fee2afb8421678b1c3
     #
     # TODO: Wait for this commit to be merged into nixos-unstable / nixos-22.11
     #       then I will remove the mark of broken anyway
