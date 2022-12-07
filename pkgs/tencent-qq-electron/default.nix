@@ -3,7 +3,7 @@
 let
   pname = "qq";
   version = "2.0.1-429";
-  name = "Tencent-QQ-${version}-iconfix";
+  name = "Tencent-QQ-${version}";
 
   src = fetchurl {
     url = "https://dldir1.qq.com/qqfile/qq/QQNT/4691a571/QQ-v${version}_x64.AppImage";
