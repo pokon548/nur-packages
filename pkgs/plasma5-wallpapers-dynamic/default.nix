@@ -35,8 +35,8 @@ mkDerivation rec {
     qtbase
     qtdeclarative
     qtlocation
-    libavif
     libexif
+    libavif
   ];
 
   passthru = {
