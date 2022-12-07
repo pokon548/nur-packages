@@ -47,5 +47,11 @@ mkDerivation rec {
     description = "Dynamic wallpaper plugin for KDE Plasma";
     homepage = "https://github.com/zzag/plasma5-wallpapers-dynamic";
     license = licenses.gpl2;
+
+    # I don't know why it is only buildable on NixOS 22.05, 
+    # but fails on recently released 22.11 / unstable.
+    #
+    # Feel free to make a PR if you have some ideas
+    broken = true;
   };
 }
