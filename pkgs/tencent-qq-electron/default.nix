@@ -1,9 +1,9 @@
-{ appimageTools, lib, fetchurl, electron, makeWrapper, libsecret }:
+{ appimageTools, lib, fetchurl, electron, buildFHSUserEnvBubblewrap, makeWrapper, libsecret }:
 
 let
   pname = "qq";
   version = "2.0.1-429";
-  name = "Tencent-QQ-${version}";
+  name = "Tencent-QQ-${version}-hi";
 
   src = fetchurl {
     url = "https://dldir1.qq.com/qqfile/qq/QQNT/4691a571/QQ-v${version}_x64.AppImage";
@@ -31,7 +31,7 @@ in appimageTools.wrapType2 {
   ];
 
   meta = with lib; {
-    homepage = "https://qq.com";
+    homepage = "https://im.qq.com";
     description = "Official Tencent QQ client for Linux (Beta)";
     platforms = [ "x86_64-linux" ];
     license = licenses.unfree;
