@@ -24,7 +24,7 @@ in appimageTools.wrapType2 {
     cp -r ${appimageContents}/usr/share/icons $out/share
   '';
 
-  passthru.version = version;
+  #passthru.version = version;
 
   extraPkgs = pkgs: with pkgs; [
     libsecret
