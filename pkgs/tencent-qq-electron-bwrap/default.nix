@@ -39,7 +39,10 @@ in appimageTools.wrapType2 {
     sed -i '102 i \ \ --ro-bind "\$HOME/.Xauthority" "\$HOME/.Xauthority"' $out/bin/${pname}
     sed -i '102 i \ \ --bind "\$(xdg-user-dir)/.config/QQ" "\$(xdg-user-dir)/.config/QQ"' $out/bin/${pname}
     sed -i '102 i \ \ --bind "\$(xdg-user-dir DOWNLOAD)" "\$(xdg-user-dir DOWNLOAD)"' $out/bin/${pname}
+    sed -i '102 i \ \ --bind "/run/opengl-driver/" "/run/opengl-driver/"' $out/bin/${pname}
     sed -i '102 i \ \ --setenv IBUS_USE_PORTAL 1' $out/bin/${pname}
+
+    sed -i '102 i \ \ --ro-bind "\$HOME/.icons" "\$HOME/.icons"' $out/bin/${pname}
 
     cp -r ${appimageContents}/usr/share/icons $out/share
   '';
