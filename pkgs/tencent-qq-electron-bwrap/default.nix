@@ -55,7 +55,7 @@ in appimageTools.wrapAppImage {
     cp $out/bin/${pname} $out/bin/test
     mv $out/bin/test $out/bin/${pname}
 
-    sed -i '39 i ! [ -f "$(xdg-user-dir)/.config/QQ/versions/config.json" ] && cp ${appimageContents}/workarounds/config.json $(xdg-user-dir)/.config/QQ/versions/' $out/bin/${pname}
+    sed -i '39 i ! [ -f "$(xdg-user-dir)/.config/QQ/versions/config.json" ] && (mkdir -pv $(xdg-user-dir)/.config/QQ/versions/ && cp ${appimageContents}/workarounds/config.json $(xdg-user-dir)/.config/QQ/versions/)' $out/bin/${pname}
     sed -i '40 i ! [ -d "$(xdg-user-dir)/.config/QQ/versions/${version}" ] && mkdir -pv $(xdg-user-dir)/.config/QQ/versions/${version}' $out/bin/${pname}
     sed -i '41 i ! [ -d "$(xdg-user-dir)/.config/QQ/versions/${version}/about" ] && ln -s ${appimageContents}/resources/app/* $(xdg-user-dir)/.config/QQ/versions/${version}' $out/bin/${pname}
 
