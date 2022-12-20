@@ -79,7 +79,7 @@ in appimageTools.wrapAppImage {
     sed -i '105 i \ \ --bind /run/current-system/sw /run/current-system/sw' $out/bin/${pname}
 
     sed -i '105 i \ \ --ro-bind "\$HOME/.icons" "\$HOME/.icons"' $out/bin/${pname}
-    sed -i '105 i \ \ --ro-bind $(xdg-user-dir)/.local/share/fcitx5 $(xdg-user-dir)/.local/share/fcitx5' $out/bin/${pname}
+    sed -i '105 i \ \ --ro-bind "$(xdg-user-dir)/.local/share/fcitx5" "$(xdg-user-dir)/.local/share/fcitx5"' $out/bin/${pname}
   '';
 
   #passthru.version = version;
