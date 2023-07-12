@@ -2,12 +2,12 @@
 
 let
   pname = "todoist";
-  version = "1.0.9";
+  version = "8.4.3";
   name = "Todoist-${version}";
 
   src = fetchurl {
-    url = "https://electron-dl.todoist.com/linux/Todoist-${version}.AppImage";
-    sha256 = "sha256-DfNFDiGYTFGetVRlAjpV/cdWcGzRDEGZjR0Dc9aAtXc=";
+    url = "https://electron-dl.todoist.com/linux/Todoist-linux-x86_64-${version}.AppImage";
+    sha256 = "sha256-TYZUaIH1bedPgZOa5FHG+pBbUOCQ2Hyj/Tm0BKSAvlc=";
   };
 
   appimageContents = appimageTools.extract { inherit name src; };
