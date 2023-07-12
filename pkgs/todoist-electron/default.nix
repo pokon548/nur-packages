@@ -1,7 +1,7 @@
 { appimageTools, lib, fetchurl, electron, makeWrapper, libsecret }:
 
 let
-  pname = "todoist";
+  pname = "todoist-electron";
   version = "8.4.3";
   name = "Todoist-${version}";
 
