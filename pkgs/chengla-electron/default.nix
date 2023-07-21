@@ -47,7 +47,7 @@ in stdenv.mkDerivation rec {
   meta = with lib; {
     description = "Chengla unofficial client for Linux";
     homepage =
-      "https://github.com/pokon548/chengla-for-linux/jitsi-meet-electron";
+      "https://github.com/pokon548/chengla-for-linux";
     license = licenses.gpl3;
     platforms = [ "x86_64-linux" ];
   };
