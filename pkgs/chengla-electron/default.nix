@@ -1,5 +1,4 @@
-{ lib, stdenv, callPackage, fetchurl, nixosTests, commandLineArgs ? ""
-, useVSCodeRipgrep ? stdenv.isDarwin }:
+{ lib, stdenv, callPackage, fetchurl, nixosTests }:
 
 let
   inherit (stdenv.hostPlatform) system;
@@ -10,12 +9,12 @@ let
   archive_fmt = "zip";
 
   sha256 = {
-    x86_64-linux = "1sfy6rcrayx661m96pyh96caycf6banjs5ksib48qsl6hxp76ks0";
+    x86_64-linux = "sha256-eKEKjJCJ0u4VJ2KyXKVbcCMGYlRrncB8jAYbqe3dsfI=";
   }.${system} or throwSystem;
 
   sourceRoot = if stdenv.isDarwin then "" else ".";
-in callPackage ./generic.nix rec {
-  inherit sourceRoot commandLineArgs useVSCodeRipgrep;
+in rec {
+  inherit sourceRoot;
 
   # Please backport all compatible updates to the stable release.
   # This is important for the extension ecosystem.
@@ -28,7 +27,7 @@ in callPackage ./generic.nix rec {
 
   src = fetchurl {
     url =
-      "https://github.com/pokon548/chengla-for-linux/releases/download/${version}/chengla-linux-unofficial-${plat}-${version}.${archive_fmt}";
+      "https://github.com/pokon548/chengla-for-linux/releases/download/v${version}/chengla-linux-unofficial-${plat}-${version}.${archive_fmt}";
     inherit sha256;
   };
 
