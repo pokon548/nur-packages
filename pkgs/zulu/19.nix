@@ -8,8 +8,8 @@
 , gtkSupport ? stdenv.isLinux, cairo, glib, gtk3 }:
 
 let
-  version = "20.32.11";
-  openjdk = "20.0.2";
+  version = "19.32.13";
+  openjdk = "19.0.2";
 
   sha256_x64_linux = "sha256-SplK3tHZs1JY1UOlnUlj0mh6EJSoGLeaIfACc/u8W8o=";
   sha256_aarch64_linux = "sha256-diFu+mnkSP5IfVcxA3KuoN8c8VuCl0yEqMsNl+uTQWU=";
