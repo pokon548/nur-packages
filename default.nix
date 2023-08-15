@@ -22,6 +22,7 @@
 
   chengla-electron = pkgs.callPackage ./pkgs/chengla-electron { };
   zulu = pkgs.callPackage ./pkgs/zulu { };
+  zulu19 = pkgs.callPackage ./pkgs/zulu/19.nix { };
 
   plasma5-wallpapers-dynamic =
     pkgs.libsForQt5.callPackage ./pkgs/plasma5-wallpapers-dynamic { };
