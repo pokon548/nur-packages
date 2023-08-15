@@ -62,8 +62,8 @@ in stdenv.mkDerivation {
   ];
 
   nativeBuildInputs = [ makeWrapper ]
-    ++ lib.optionals stdenv.isLinux [ autoPatchelfHook ]
-    ++ lib.optionals stdenv.isDarwin [ unzip ];
+    ++ lib.optionals stdenv.isLinux [ unzip ]
+    ++ lib.optionals stdenv.isDarwin [ autoPatchelfHook ];
 
   installPhase = ''
     runHook preInstall
