@@ -17,7 +17,7 @@ stdenv.mkDerivation {
   '';
 
   installPhase = ''
-    install -Dm644 CustomPinyinDictionary_Fcitx.dict $out/share/fcitx5/pinyin/dictionaries/zhwiki.dict
+    install -Dm644 CustomPinyinDictionary_Fcitx.dict $out/share/fcitx5/pinyin/dictionaries/CustomPinyinDictionary_Fcitx.dict
   '';
 
   meta = with lib; {
