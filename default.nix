@@ -32,6 +32,8 @@
   geogebra = pkgs.callPackage ./pkgs/geogebra { };
   zhixi = pkgs.callPackage ./pkgs/zhixi { };
 
+  vaults = pkgs.callPackage ./pkgs/vaults { };
+
   zulu = pkgs.callPackage ./pkgs/zulu { };
   zulu19 = pkgs.callPackage ./pkgs/zulu/19.nix { };
   zulu17 = pkgs.callPackage ./pkgs/zulu/17.nix { };
