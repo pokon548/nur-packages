@@ -7,7 +7,7 @@ stdenv.mkDerivation {
   version = "20231115";
 
   src = fetchurl {
-    url = "https://github.com/Cats-Team/AdRules/blob/f33359a5f2555c4a36df21e9d25af05b24f4fd08/smart-dns.conf";
+    url = "https://raw.githubusercontent.com/Cats-Team/AdRules/f33359a5f2555c4a36df21e9d25af05b24f4fd08/smart-dns.conf";
     sha256 = "sha256-1rr79ADVyDJh4zitR29i9xWCMLAj2w3dHiACbztSpdQ=";
   };
 
