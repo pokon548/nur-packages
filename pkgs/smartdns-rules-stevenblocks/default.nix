@@ -21,8 +21,8 @@ stdenv.mkDerivation {
   '';
 
   meta = with lib; {
-    description = "List for blocking ads in the Chinese region";
-    homepage = "https://adrules.top";
-    license = licenses.unlicense;
+    description = "L🔒 Consolidating and extending hosts files from several well-curated sources. Optionally pick extensions for porn, social media, and other categories.";
+    homepage = "https://github.com/StevenBlack/hosts";
+    license = licenses.mit;
   };
 }

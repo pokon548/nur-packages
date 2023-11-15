@@ -22,6 +22,6 @@ stdenv.mkDerivation {
   meta = with lib; {
     description = "List for blocking ads in the Chinese region";
     homepage = "https://adrules.top";
-    license = licenses.unlicense;
+    license = licenses.wtfpl;
   };
 }
