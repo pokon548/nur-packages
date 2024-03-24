@@ -35,6 +35,6 @@ appimageTools.wrapType2 {
     description =
       "An open-source remote desktop, and alternative to TeamViewer.";
     platforms = [ "x86_64-linux" ];
-    license = licenses.agpl3;
+    license = licenses.agpl3Only;
   };
 }
